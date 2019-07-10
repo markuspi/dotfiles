@@ -7,7 +7,7 @@ antigen bundle djui/alias-tips
 antigen theme denysdovhan/spaceship-prompt
 antigen apply
 
-export SPACESHTIP_PROMPT_ADD_NEWLINE=false
+export SPACESHIP_PROMPT_ADD_NEWLINE=false
 export SPACESHIP_DIR_TRUNC=5
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 

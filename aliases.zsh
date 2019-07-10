@@ -13,6 +13,8 @@ alias ed-vim="vim ~/.vimrc"
 alias ed-ssh="vim ~/.ssh/config"
 alias ed-zsh="vim ~/.zshrc"
 
+alias dot-pull="git -C ~/.dotfiles pull && ~/.dotfiles/install.zsh"
+
 function venv {
     if [ -d "venv" ]; then
         . venv/bin/activate
