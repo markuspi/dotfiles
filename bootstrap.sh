@@ -16,6 +16,13 @@ if ask "Do you want to use sudo features for installation?"; then
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
+else
+    echo "You probably have to add 'zsh -l' to your startup file manually."
+fi
+
+if ! [ -x "$(command -v git)" ]; then
+    echo "Error: git is not installed" >&2
+    exit 1
 fi
 
 if ! [ -x "$(command -v zsh)" ]; then
