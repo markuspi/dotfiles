@@ -1,11 +1,5 @@
 source ~/.local/bin/antigen.zsh
-antigen use oh-my-zsh
-antigen bundle z
-antigen bundle git
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle djui/alias-tips
-antigen theme denysdovhan/spaceship-prompt
-antigen apply
+antigen init ~/.antigenrc
 
 export SPACESHIP_PROMPT_ADD_NEWLINE=false
 export SPACESHIP_DIR_TRUNC=5
