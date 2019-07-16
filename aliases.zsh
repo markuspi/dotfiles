@@ -12,6 +12,7 @@ alias apk-search="adb shell pm list packages | grep"
 
 # edit common config files
 alias ed-al="vim ~/.dotfiles/aliases.zsh && . ~/.dotfiles/aliases.zsh"
+alias ed-fun="vim ~/.dotfiles/functions.zsh && . ~/.dotfiles/functions.zsh"
 alias ed-vim="vim ~/.vimrc"
 alias ed-ssh="vim ~/.ssh/config"
 alias ed-zsh="vim ~/.zshrc"
