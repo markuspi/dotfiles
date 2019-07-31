@@ -5,8 +5,12 @@ export SPACESHIP_PROMPT_ADD_NEWLINE=false
 export SPACESHIP_DIR_TRUNC=5
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 
-export PATH=~/.local/bin:/snap/bin:$PATH
+export PATH="~/.local/bin:/snap/bin:$PATH"
 export LANG=C
+
+if [ -x "$(command -v yarn)" ]; then
+    export PATH="$(yarn global bin):$PATH"
+fi
 
 # colored manpages
 export LESS_TERMCAP_mb=$'\C-[[1;32m'

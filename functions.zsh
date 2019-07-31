@@ -33,3 +33,9 @@ function apk-pull {
     packpath=$(adb shell pm path "$package")
     adb pull "${packpath#*:}"
 }
+
+function explain {
+    cmd="$(urlencode "$*")"
+    url="https://explainshell.com/explain?cmd=$cmd"
+    xdg-open "$url"
+}
