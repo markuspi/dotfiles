@@ -21,6 +21,9 @@ set novisualbell
 " don't continue comment in new line
 set formatoptions-=ro
 
+" wrap arrowskeys
+set whichwrap+=<,>,h,l,[,]
+
 " keybindings
 " move selected line
 inoremap <A-Down> <Esc>:m .+1<CR>==gi
