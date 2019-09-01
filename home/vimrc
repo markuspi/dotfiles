@@ -4,6 +4,7 @@ filetype plugin on
 set scrolloff=7
 syntax on
 set mouse=a
+set autoindent
 
 " sane tab behaviour
 set expandtab
