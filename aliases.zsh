@@ -13,6 +13,7 @@ alias apk-search="adb shell pm list packages | grep"
 alias www="myip && python3 -m http.server"
 alias www!="(sleep 2 && x 'http://localhost:8000/') & www"
 alias sysc="sudo systemctl"
+alias cd="cd .."
 
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
