@@ -17,7 +17,7 @@ for file in "$HOME"/.dotfiles/home/*; do
 
     # check if there is a non-link file that would be overwritten
     if [ -e "$linkname" ] && [ ! -L "$linkname" ]; then
-        echo "Baking up: $linkname >> $linkname.bak"
+        echo "Backing up: $linkname >> $linkname.bak"
         mv "$linkname" "$linkname.bak"
     fi
 
@@ -29,5 +29,8 @@ for file in "$HOME"/.dotfiles/home/*; do
     echo "Linking $linkname -> $file"
     ln -s "$file" "$linkname"
 done
+
+# install useful python packages
+pip3 install --upgrade --user tldr thefuck bpython
 
 echo "Done. You may need to log in again to see the effect"

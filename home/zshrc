@@ -23,3 +23,8 @@ export LESS_TERMCAP_us=$'\C-[[1;4;31m'
 
 source ~/.dotfiles/aliases.zsh
 source ~/.dotfiles/functions.zsh
+
+if [ -x "$(command -v thefuck)" ]; then
+    eval $(thefuck --alias)
+fi
+
