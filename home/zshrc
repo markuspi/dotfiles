@@ -28,3 +28,7 @@ if [ -x "$(command -v thefuck)" ]; then
     eval $(thefuck --alias)
 fi
 
+if [ -f ~/.dotfiles/zshrc.local ]; then
+    source ~/.dotfiles/zshrc.local
+fi
+
