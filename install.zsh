@@ -31,6 +31,6 @@ for file in "$HOME"/.dotfiles/home/*; do
 done
 
 # install useful python packages
-pip3 install --upgrade --user tldr bpython
+pip3 install --upgrade --user tldr bpython virtualenv
 
 echo "Done. You may need to log in again to see the effect"

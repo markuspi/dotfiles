@@ -3,9 +3,24 @@ antigen init ~/.antigenrc
 
 export SPACESHIP_PROMPT_ADD_NEWLINE=false
 export SPACESHIP_DIR_TRUNC=5
+export SPACESHIP_PROMPT_ORDER=(
+    user
+    dir
+    host
+    git
+    venv
+    pyenv
+    ros
+    exec_time
+    line_sep
+    battery
+    jobs
+    exit_code
+    char
+)
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 
-export PATH="$HOME/.local/bin:/snap/bin:$PATH"
+export PATH="$HOME/.local/bin:/snap/bin:/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
 export LANG=C
 
 if [ -d "$HOME/.yarn/bin" ]; then
@@ -32,3 +47,8 @@ if [ -f ~/.dotfiles/zshrc.local ]; then
     source ~/.dotfiles/zshrc.local
 fi
 
+#source /opt/ros/dashing/setup.zsh
+#source /opt/ros/melodic/setup.zsh
+
+#export PYTHONPATH=$PYTHONPATH:/opt/carla-0.9.6/PythonAPI/carla:/opt/scenario_runner
+export ROOT_SCENARIO_RUNNER=/opt/scenario_runner
