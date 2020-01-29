@@ -19,7 +19,7 @@ alias www!="(sleep 2 && x 'http://localhost:8000/') & www"
 alias sysc="sudo systemctl"
 alias ,,=".."
 alias epoch="date +%s"
-alias sav='git commit -m "Autosave ($(date +"%F %T"))"'
+alias sav='git commit -m "Autosave ($(date +"%F %T"))" && git push'
 
 alias ros="source /opt/ros/melodic/setup.zsh"
 alias ros-ck='source $(catkin locate -d)/setup.zsh'
