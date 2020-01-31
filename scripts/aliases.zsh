@@ -31,8 +31,8 @@ alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
 
 # edit common config files
-alias ed-al="vim ~/.dotfiles/aliases.zsh && . ~/.dotfiles/aliases.zsh"
-alias ed-fun="vim ~/.dotfiles/functions.zsh && . ~/.dotfiles/functions.zsh"
+alias ed-al="vim ~/.dotfiles/scripts/aliases.zsh && . ~/.dotfiles/scripts/aliases.zsh"
+alias ed-fun="vim ~/.dotfiles/scripts/functions.zsh && . ~/.dotfiles/scripts/functions.zsh"
 alias ed-vim="vim ~/.vimrc"
 alias ed-ssh="vim ~/.ssh/config"
 alias ed-zsh="vim ~/.zshrc"

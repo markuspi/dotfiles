@@ -23,10 +23,6 @@ export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 export PATH="$HOME/.local/bin:/snap/bin:/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
 export LANG=C
 
-if [ -d "$HOME/.yarn/bin" ]; then
-    export PATH="$HOME/.yarn/bin:$PATH"
-fi
-
 # colored manpages
 export LESS_TERMCAP_mb=$'\C-[[1;32m'
 export LESS_TERMCAP_md=$'\C-[[1;32m'
@@ -36,8 +32,10 @@ export LESS_TERMCAP_so=$'\C-[[01;33m'
 export LESS_TERMCAP_ue=$'\C-[[0m'
 export LESS_TERMCAP_us=$'\C-[[1;4;31m'
 
-source ~/.dotfiles/aliases.zsh
-source ~/.dotfiles/functions.zsh
+# source all files in scripts dir
+for file in ~/.dotfiles/scripts/*.zsh; do
+    source "$file"
+done
 
 if [ -x "$(command -v thefuck)" ]; then
     eval $(thefuck --alias)
@@ -46,9 +44,3 @@ fi
 if [ -f ~/.dotfiles/zshrc.local ]; then
     source ~/.dotfiles/zshrc.local
 fi
-
-#source /opt/ros/dashing/setup.zsh
-#source /opt/ros/melodic/setup.zsh
-
-#export PYTHONPATH=$PYTHONPATH:/opt/carla-0.9.6/PythonAPI/carla:/opt/scenario_runner
-export ROOT_SCENARIO_RUNNER=/opt/scenario_runner

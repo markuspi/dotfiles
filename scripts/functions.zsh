@@ -9,6 +9,18 @@ function ask {
     return
 }
 
+function vrun {
+    dir="$(pwd)"
+    for file in "$dir/venv/bin/python" "$dir/.venv/bin/python"; do
+        if [ -f "$file" ]; then
+            "$file" "$@"
+            return
+        fi
+    done
+    echo "No venv directory found!"
+    return 1
+}
+
 function venv {
     dir="${1:-$(pwd)}"
     for file in "$dir/venv/bin/activate" "$dir/.venv/bin/activate" "$dir/bin/activate"; do
