@@ -20,7 +20,7 @@ export SPACESHIP_PROMPT_ORDER=(
 )
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 
-export PATH="$HOME/.local/bin:/snap/bin:/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
+export PATH="$HOME/.local/bin:/snap/bin:$PATH"
 export LANG=C
 
 # colored manpages

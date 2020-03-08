@@ -9,6 +9,7 @@ alias aptr="sudo apt autoremove -y"
 
 alias p2="python2"
 alias p3="python3"
+alias nb="jupyter notebook"
 alias hist="history | grep"
 alias myip="hostname -I"
 alias tmpd='cd $(mktemp -d /tmp/mytmp.XXX)'
@@ -20,6 +21,7 @@ alias sysc="sudo systemctl"
 alias ,,=".."
 alias epoch="date +%s"
 alias sav='git commit -m "Autosave ($(date +"%F %T"))" && git push'
+alias mine='sudo chown -R "$(id -u):$(id -g)"'
 
 alias ros="source /opt/ros/melodic/setup.zsh"
 alias ros-ck='source $(catkin locate -d)/setup.zsh'

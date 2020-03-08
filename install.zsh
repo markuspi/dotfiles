@@ -32,5 +32,6 @@ done
 
 # install useful python packages
 pip3 install --upgrade --user tldr bpython virtualenv
+git config --global core.excludefile ~/.gitignore-system
 
 echo "Done. You may need to log in again to see the effect"
