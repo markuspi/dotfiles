@@ -73,7 +73,13 @@ function apk-pull {
 }
 
 function explain {
-    cmd="$(urlencode "$*")"
-    url="https://explainshell.com/explain?cmd=$cmd"
-    xdg-open "$url"
+    xdg-open "https://explainshell.com/explain?cmd=$(urlencode "$*")"
+}
+
+function github {
+    git clone "https://github.com/$1"
+}
+
+function bak {
+    mv "$1" "$1.bak"
 }

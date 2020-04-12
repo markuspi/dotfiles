@@ -18,13 +18,9 @@ alias apk-search="adb shell pm list packages | grep"
 alias www="myip && python3 -m http.server"
 alias www!="(sleep 2 && x 'http://localhost:8000/') & www"
 alias sysc="sudo systemctl"
-alias ,,=".."
 alias epoch="date +%s"
 alias sav='git commit -m "Autosave ($(date +"%F %T"))" && git push'
 alias mine='sudo chown -R "$(id -u):$(id -g)"'
-
-alias ros="source /opt/ros/melodic/setup.zsh"
-alias ros-ck='source $(catkin locate -d)/setup.zsh'
 
 # python single line scripts
 alias hex="python3 -c 'import sys; print(hex(int(sys.argv[1])))'"

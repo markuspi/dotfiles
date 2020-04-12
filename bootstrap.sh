@@ -12,7 +12,7 @@ ask() {
 
 if ask "Do you want to use sudo features for installation?"; then
     echo "Installing dependencies"
-    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential python3-pip
+    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential python3-pip tmux
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
@@ -26,6 +26,11 @@ if ! [ -x "$(command -v git)" ]; then
 fi
 
 TMP_DIR="$(mktemp -d)"
+
+if ! [ -x "$(command -v python3)" ]; then
+    echo "Error: python3 is not installed" >&2
+    exit 1
+fi
 
 if ! [ -x "$(command -v pip3)" ]; then
     echo "pip3 is not installed, installing locally..."
