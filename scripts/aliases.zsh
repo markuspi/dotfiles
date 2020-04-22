@@ -21,6 +21,7 @@ alias sysc="sudo systemctl"
 alias epoch="date +%s"
 alias sav='git commit -m "Autosave ($(date +"%F %T"))" && git push'
 alias mine='sudo chown -R "$(id -u):$(id -g)"'
+alias procwait='tail -f /dev/null --pid'
 
 # python single line scripts
 alias hex="python3 -c 'import sys; print(hex(int(sys.argv[1])))'"
