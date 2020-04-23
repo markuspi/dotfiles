@@ -33,19 +33,5 @@ inoremap <A-UP> <Esc>:m .-2<CR>==gi
 nnoremap <CR> o<Esc>
 nnoremap <BS> X
 
-" unbind arrow keys
-"noremap <Up> <Nop>
-"noremap <Down> <Nop>
-"inoremap <Left> <Nop>
-"noremap <Right> <Nop>
-"inoremap <Up> <Nop>
-"inoremap <Down> <Nop>
-"inoremap <Left> <Nop>
-"inoremap <Right> <Nop>
-"vnoremap <Up> <Nop>
-"vnoremap <Down> <Nop>
-"vnoremap <Left> <Nop>
-"vnoremap <Right> <Nop>
-
 " unbind q
 noremap q :q

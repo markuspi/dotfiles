@@ -2,14 +2,12 @@
 # package related
 alias up="sudo apt update && sudo apt upgrade -y"
 alias inst="sudo apt install"
-alias upinst="sudo apt update && sudo apt install"
 alias alig="apt list --installed | grep"
 alias sinst="sudo snap install"
 alias aptr="sudo apt autoremove -y"
 
 alias p2="python2"
 alias p3="python3"
-alias nb="jupyter notebook"
 alias hist="history | grep"
 alias myip="hostname -I"
 alias tmpd='cd $(mktemp -d /tmp/mytmp.XXX)'
