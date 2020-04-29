@@ -17,7 +17,7 @@ if ask "Do you want to use sudo features for installation?"; then
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
 else
-    echo "You probably have to add 'zsh -l' to your startup file manually."
+    NON_SUDO=1
 fi
 
 if ! [ -x "$(command -v git)" ]; then
@@ -49,8 +49,47 @@ if ! [ -x "$(command -v zsh)" ]; then
         ./configure --prefix="$HOME/.local/"
         make
         make install
+        ZSH_LOCATION="$HOME/.local/bin/zsh"
     else
         exit 1
+    fi
+else
+    ZSH_LOCATION="$(which zsh)"
+fi
+
+if [[ -v NON_SUDO ]]; then
+    if [[ "$SHELL" == *bash ]]; then
+        echo "looks like you are using bash"
+
+        if ask "Do you want me to edit .bashrc to automatically start zsh?"; then
+            touch "$HOME/.bashrc"
+            cp "$HOME/.bashrc" "$TMP_DIR/.bashrc"
+
+            echo "writing to .bashrc"
+            echo "MY_ZSH=\"${ZSH_LOCATION}\"" > "$HOME/.bashrc"
+cat << 'EOF' >> "$HOME/.bashrc"
+if [ -z "${NOZSH}" ] && [ $TERM = "xterm" -o $TERM = "xterm-256color" -o $TERM = "screen" ] && type "$MY_ZSH" &> /dev/null
+then
+    export SHELL="$MY_ZSH"
+    if [[ -o login ]]
+    then
+        exec "$SHELL" -l
+    else
+        exec "$SHELL"
+    fi
+    return
+fi
+
+EOF
+            cat "$TMP_DIR/.bashrc" >> "$HOME/.bashrc"
+        else
+            echo "you probably have to add 'exec zsh -l' to your startup file manually"
+        fi
+    elif [[ "$SHELL" == *zsh ]]; then
+        echo "you are already using zsh"
+    else
+        echo "could not identify your current shell"
+        echo "you probably have to add 'exec zsh -l' to your startup file manually"
     fi
 fi
 
