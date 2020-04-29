@@ -5,6 +5,7 @@ alias inst="sudo apt install"
 alias alig="apt list --installed | grep"
 alias sinst="sudo snap install"
 alias aptr="sudo apt autoremove -y"
+alias pinst="pip3 install"
 
 alias p2="python2"
 alias p3="python3"
