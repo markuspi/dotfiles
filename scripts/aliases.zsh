@@ -2,7 +2,7 @@
 # package related
 alias up="sudo apt update && sudo apt upgrade -y"
 alias inst="sudo apt install"
-alias alig="apt list --installed | grep"
+alias alig="apt list --installed 2>/dev/null | grep"
 alias sinst="sudo snap install"
 alias aptr="sudo apt autoremove -y"
 alias pinst="pip3 install"
