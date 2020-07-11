@@ -95,3 +95,12 @@ function bak {
 function whichfile {
     file "$(which "$1")"
 }
+
+function b64enc {
+    printf "$1" | base64
+}
+
+function b64dec {
+    printf "$1" | base64 --decode
+    printf "\n" 2>&1
+}
