@@ -21,7 +21,7 @@ export SPACESHIP_PROMPT_ORDER=(
 export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES='_ git'
 
 export PATH="$HOME/.local/bin:/snap/bin:$PATH"
-export LANG=C
+export LANG=en_US.UTF-8
 
 # colored manpages
 export LESS_TERMCAP_mb=$'\C-[[1;32m'

@@ -12,7 +12,7 @@ ask() {
 
 if ask "Do you want to use sudo features for installation?"; then
     echo "Installing dependencies"
-    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential python3-pip tmux
+    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential python3-pip tmux htop
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"

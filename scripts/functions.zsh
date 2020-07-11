@@ -42,6 +42,14 @@ function venv {
     elif [[ "$answer" == "2" ]]; then
         virtualenv -p python3 venv
         . venv/bin/activate
+    else
+        return
+    fi
+
+    if [ -f "requirements.txt" ]; then
+        if ask "requirements.txt was found. Do you want to install the dependencies?"; then
+            pip install -r requirements.txt
+        fi
     fi
 }
 
@@ -82,4 +90,8 @@ function github {
 
 function bak {
     mv "$1" "$1.bak"
+}
+
+function whichfile {
+    file "$(which "$1")"
 }
