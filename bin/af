@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+"""
+apt-file helper that speeds up searching and installing missing files
+"""
 
 import sys
 import subprocess
-
 
 
 if __name__ == "__main__":

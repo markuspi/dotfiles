@@ -12,7 +12,7 @@ if [[ "$HOME" != "/home"* ]]; then
 fi
 
 function make_links {
-    for file in "$1"/*; do
+    for file in "$1"/*(D); do
         name="${file:t}"
         linkname="$2/$name"
 
