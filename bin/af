@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+import sys
+import subprocess
+
+
+
+if __name__ == "__main__":
+    out: str = subprocess.check_output(["apt-file", "search", sys.argv[1]]).decode("UTF-8")
+
+    print("0) Abort")
+
+    packages = []
+    for i, line in enumerate(out.splitlines()):
+        name, path = line.split(": ", 1)
+        packages.append(name)
+
+        print(f"{i + 1}) {name}: {path}")
+    
+    choice = input("Choose an option: ")
+
+    try:
+        choice = int(choice)
+    except ValueError:
+        print("Invalid number")
+        sys.exit(2)
+
+    if 0 < choice <= len(packages):
+        subprocess.check_call(["sudo", "apt", "install", packages[choice - 1]])
+    else:
+        print("Aborting")
+        sys.exit(1)
+    
+

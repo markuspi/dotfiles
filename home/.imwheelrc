@@ -1,5 +1,6 @@
-"^Navigator$"
+"^Navigator|spotify|code|okular$"
 None, Up, Button4, 3
 None, Down, Button5, 3
 None, Left, Button5
 None, Right, Button4
+
