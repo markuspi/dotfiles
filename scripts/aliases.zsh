@@ -9,6 +9,7 @@ alias pinst="pip3 install"
 
 alias p2="python2"
 alias p3="python3"
+alias bp="python -m bpython"
 alias hist="history | grep"
 alias myip="hostname -I"
 alias tmpd='cd $(mktemp -d /tmp/mytmp.XXX)'
@@ -22,6 +23,7 @@ alias sav='git commit -m "Autosave ($(date +"%F %T"))" && git push'
 alias mine='sudo chown -R "$(id -u):$(id -g)"'
 alias procwait='tail -f /dev/null --pid'
 alias nb='jupyter notebook'
+alias ntst="sudo netstat -tulpen"
 
 # python single line scripts
 alias hex="python3 -c 'import sys; print(hex(int(sys.argv[1])))'"
