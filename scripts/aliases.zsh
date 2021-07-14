@@ -24,12 +24,15 @@ alias mine='sudo chown -R "$(id -u):$(id -g)"'
 alias procwait='tail -f /dev/null --pid'
 alias nb='jupyter notebook'
 alias ntst="sudo netstat -tulpen"
+alias pw="cat /dev/urandom | tr -dc A-Za-z0-9 | head -c"
+alias pw2="cat /dev/urandom | tr -dc 'A-Za-z0-9!$&/()=?;:,._' | head -c"
 
 # python single line scripts
 alias hex="python3 -c 'import sys; print(hex(int(sys.argv[1])))'"
 alias div="python3 -c 'import sys; x,y = int(sys.argv[1]),int(sys.argv[2]); print(x // y, x % y)'"
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
+alias bits='python3 -c "import sys; print([i for i, x in enumerate(bin(int(sys.argv[1]))[::-1]) if x == \"1\"])"'
 
 # edit common config files
 alias ed-al="vim ~/.dotfiles/scripts/aliases.zsh && . ~/.dotfiles/scripts/aliases.zsh"
