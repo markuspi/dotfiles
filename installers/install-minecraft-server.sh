@@ -23,4 +23,4 @@ EOF
 chmod +x run.sh
 
 tmux new -s mc -n server -d
-tmux send-keys -s mc "${INSTALL_DIR}/run.sh" ENTER
+tmux send-keys -t mc:server "${INSTALL_DIR}/run.sh" ENTER
