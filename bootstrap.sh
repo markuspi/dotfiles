@@ -12,7 +12,8 @@ ask() {
 
 if ask "Do you want to use sudo features for installation?"; then
     echo "Installing dependencies"
-    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential python3-pip tmux htop
+    sudo apt update
+    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential pkg-config cmake curl python3-pip tmux htop
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
@@ -104,6 +105,11 @@ else
     echo "Retrieving dotfiles"
     git clone "$REPO_URL" "$HOME/.dotfiles"
 fi
+
+echo "Installing duplicacy"
+wget -O "$HOME/.local/bin/duplicacy" https://github.com/gilbertchen/duplicacy/releases/download/v2.7.2/duplicacy_linux_x64_2.7.2
+chmod +x "$HOME/.local/bin/duplicacy"
+echo "b83c2c8095839f00b7851967615e81ca4fbd4d255b4bfde9da9ba74ff85a852d $HOME/.local/bin/duplicacy" | sha256sum -c
 
 rm -rf "$TMP_DIR"
 

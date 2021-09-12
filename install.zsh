@@ -36,7 +36,7 @@ make_links "$HOME/.dotfiles/home" "$HOME"
 make_links "$HOME/.dotfiles/bin" "$HOME/.local/bin"
 
 # install useful python packages
-pip3 install --upgrade --user tldr bpython virtualenv
+pip3 install --upgrade --user tldr bpython virtualenv conan
 git config --global core.excludesfile ~/.gitignore-system
 
 echo "Done. You may need to log in again to see the effect"

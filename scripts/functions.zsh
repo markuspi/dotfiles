@@ -85,7 +85,8 @@ function explain {
 }
 
 function github {
-    git clone "https://github.com/$1"
+    cd ~/Downloads/github
+    git clone $1
 }
 
 function bak {

@@ -25,3 +25,5 @@ sudo ./install-tl
 echo "Cleaning up"
 popd
 rm -rf "$TMP_DIR"
+
+echo "Please 'sudo /usr/local/texlive/*/bin/*/tlmgr path add' to create symlinks to the executables"
