@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 REPO_URL="https://github.com/markuspi/dotfiles"
@@ -13,10 +13,15 @@ ask() {
 if ask "Do you want to use sudo features for installation?"; then
     echo "Installing dependencies"
     sudo apt update
-    sudo apt install -y git vim zsh fonts-powerline python3-dev python build-essential pkg-config cmake curl python3-pip tmux htop powerline
+    sudo apt install -y git vim zsh fonts-powerline python3-dev build-essential pkg-config cmake curl python3-pip tmux htop powerline
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
+
+    if ! grep -q emulate /etc/zsh/zprofile; then
+        echo "Patching zprofile for snap support"
+        printf "\nemulate sh -c 'source /etc/profile'\n" | sudo tee -a /etc/zsh/zprofile
+    fi
 else
     NON_SUDO=1
 fi

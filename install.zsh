@@ -35,6 +35,11 @@ function make_links {
 make_links "$HOME/.dotfiles/home" "$HOME"
 make_links "$HOME/.dotfiles/bin" "$HOME/.local/bin"
 
+echo "Temparily adding .local/bin to PATH"
+# force path array to be have unique items
+typeset -U path
+path+="$HOME/.local/bin"
+
 # install useful python packages
 pip3 install --upgrade --user tldr bpython virtualenv conan
 git config --global core.excludesfile ~/.gitignore-system
