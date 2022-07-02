@@ -37,6 +37,10 @@ for file in ~/.dotfiles/scripts/*.zsh; do
     source "$file"
 done
 
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=8'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=8'
+
 if [ -x "$(command -v thefuck)" ]; then
     eval $(thefuck --alias)
 fi
@@ -44,3 +48,42 @@ fi
 if [ -f ~/.dotfiles/zshrc.local ]; then
     source ~/.dotfiles/zshrc.local
 fi
+
+# kdesrc-build #################################################################
+
+## Add kdesrc-build to PATH
+export PATH="$HOME/kde/src/kdesrc-build:$PATH"
+
+
+## Autocomplete for kdesrc-run
+function _comp_kdesrc_run
+{
+  local cur
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+
+  # Complete only the first argument
+  if [[ $COMP_CWORD != 1 ]]; then
+    return 0
+  fi
+
+  # Retrieve build modules through kdesrc-run
+  # If the exit status indicates failure, set the wordlist empty to avoid
+  # unrelated messages.
+  local modules
+  if ! modules=$(kdesrc-run --list-installed);
+  then
+      modules=""
+  fi
+
+  # Return completions that match the current word
+  COMPREPLY=( $(compgen -W "${modules}" -- "$cur") )
+
+  return 0
+}
+
+## Register autocomplete function
+complete -o nospace -F _comp_kdesrc_run kdesrc-run
+
+################################################################################
+

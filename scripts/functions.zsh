@@ -46,6 +46,8 @@ function venv {
         return
     fi
 
+    python -m pip install --upgrade pip
+
     if [ -f "requirements.txt" ]; then
         if ask "requirements.txt was found. Do you want to install the dependencies?"; then
             pip install -r requirements.txt
