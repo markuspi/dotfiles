@@ -41,7 +41,7 @@ typeset -U path
 path+="$HOME/.local/bin"
 
 # install useful python packages
-pip3 install --upgrade --user tldr bpython virtualenv conan
+pip3 install --upgrade --user tldr virtualenv
 git config --global core.excludesfile ~/.gitignore-system
 
 echo "Done. You may need to log in again to see the effect"
