@@ -1,6 +1,6 @@
 
 # package related
-alias up="sudo apt update && sudo apt upgrade -y"
+alias up="sudo bash -c 'apt update && apt upgrade -y && snap refresh'"
 alias inst="sudo apt install"
 alias alig="apt list --installed 2>/dev/null | grep"
 alias sinst="sudo snap install"

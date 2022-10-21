@@ -30,6 +30,11 @@ function venv {
         fi
     done
 
+    if [ -f "Pipfile" ]; then
+        pipenv shell
+        return
+    fi
+
     echo "No venv directory found! What do you want to do?"
     echo "0) abort"
     echo "1) create .venv directory"
@@ -107,3 +112,8 @@ function b64dec {
     printf "$1" | base64 --decode
     printf "\n" 2>&1
 }
+
+function ggg {
+    git commit -m "'$*'"
+}
+
