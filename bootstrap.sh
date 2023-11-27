@@ -10,10 +10,23 @@ ask() {
     return
 }
 
-if ask "Do you want to use sudo features for installation?"; then
+SUDO_PREFIX="sudo "
+
+if [[ $EUID == 0 ]]; then
+    echo "You are running this script as root, which is not recommended."
+    if ask "Are you sure you want to proceed like this?"; then
+        SUDO_PREFIX=""
+    else
+        exit 1
+    fi
+elif ! ask "Do you want to use sudo features for installation? (recommended)"; then
+    ROOTLESS=1
+fi
+
+if ! [[ -v ROOTLESS ]]; then
     echo "Installing dependencies"
     sudo apt update
-    sudo apt install -y git vim zsh fonts-powerline python3-dev build-essential pkg-config cmake curl python3-pip tmux htop powerline locales
+    sudo apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales
 
     echo "Setting zsh as shell for current user"
     sudo chsh -s /bin/zsh "$USER"
@@ -22,8 +35,6 @@ if ask "Do you want to use sudo features for installation?"; then
         echo "Patching zprofile for snap support"
         printf "\nemulate sh -c 'source /etc/profile'\n" | sudo tee -a /etc/zsh/zprofile
     fi
-else
-    NON_SUDO=1
 fi
 
 if ! [ -x "$(command -v git)" ]; then
@@ -63,7 +74,7 @@ else
     ZSH_LOCATION="$(which zsh)"
 fi
 
-if [[ -v NON_SUDO ]]; then
+if [[ -v ROOTLESS ]]; then
     if [[ "$SHELL" == *bash ]]; then
         echo "looks like you are using bash"
 
