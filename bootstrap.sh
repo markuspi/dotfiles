@@ -10,7 +10,7 @@ ask() {
     return
 }
 
-SUDO_PREFIX="sudo "
+SUDO_PREFIX="sudo"
 
 if [[ $EUID == 0 ]]; then
     echo "You are running this script as root, which is not recommended."
@@ -19,21 +19,21 @@ if [[ $EUID == 0 ]]; then
     else
         exit 1
     fi
-elif ! ask "Do you want to use sudo features for installation? (recommended)"; then
+elif ! ask "Do you want to use $SUDO_PREFIX features for installation? (recommended)"; then
     ROOTLESS=1
 fi
 
 if ! [[ -v ROOTLESS ]]; then
     echo "Installing dependencies"
-    sudo apt update
-    sudo apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales
+    $SUDO_PREFIX apt update
+    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales
 
     echo "Setting zsh as shell for current user"
-    sudo chsh -s /bin/zsh "$USER"
+    $SUDO_PREFIX chsh -s /bin/zsh "$USER"
 
     if ! grep -q emulate /etc/zsh/zprofile; then
         echo "Patching zprofile for snap support"
-        printf "\nemulate sh -c 'source /etc/profile'\n" | sudo tee -a /etc/zsh/zprofile
+        printf "\nemulate sh -c 'source /etc/profile'\n" | $SUDO_PREFIX tee -a /etc/zsh/zprofile
     fi
 fi
 
