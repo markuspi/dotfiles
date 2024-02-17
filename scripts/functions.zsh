@@ -23,7 +23,7 @@ function vrun {
 
 function venv {
     dir="${1:-$(pwd)}"
-    for file in "$dir/venv/bin/activate" "$dir/.venv/bin/activate" "$dir/bin/activate"; do
+    for file in "$dir/venv/bin/activate" "$dir/.venv/bin/activate" "$dir/.venv/local/bin/activate" "$dir/bin/activate"; do
         if [ -f "$file" ]; then
             . "$file"
             return
