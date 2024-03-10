@@ -43,10 +43,6 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=8'
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=8'
 
-if [ -x "$(command -v thefuck)" ]; then
-    eval $(thefuck --alias)
-fi
-
 if [ -f ~/.dotfiles/zshrc.local ]; then
     source ~/.dotfiles/zshrc.local
 fi
