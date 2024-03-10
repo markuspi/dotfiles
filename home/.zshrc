@@ -9,7 +9,6 @@ export SPACESHIP_PROMPT_ORDER=(
     host
     git
     venv
-    ros
     exec_time
     line_sep
     battery

@@ -122,11 +122,6 @@ else
     git clone "$REPO_URL" "$HOME/.dotfiles"
 fi
 
-echo "Installing duplicacy"
-wget -O "$HOME/.local/bin/duplicacy" https://github.com/gilbertchen/duplicacy/releases/download/v2.7.2/duplicacy_linux_x64_2.7.2
-chmod +x "$HOME/.local/bin/duplicacy"
-echo "b83c2c8095839f00b7851967615e81ca4fbd4d255b4bfde9da9ba74ff85a852d $HOME/.local/bin/duplicacy" | sha256sum -c
-
 rm -rf "$TMP_DIR"
 
 echo "Installing dotfiles"

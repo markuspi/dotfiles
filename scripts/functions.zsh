@@ -60,16 +60,6 @@ function venv {
     fi
 }
 
-function mkcd {
-    if [ "$#" -ne "1" ]; then
-        echo "Usage: $0 <directory>"
-        return -1
-    fi
-
-    mkdir -p "$1"
-    cd "$1"
-}
-
 function apk-pull {
     if [ "$#" -ne "1" ]; then
         echo "Usage: $0 <search-term>"
