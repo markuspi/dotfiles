@@ -24,6 +24,7 @@ set shiftwidth=4
 
 " enable line numbers
 set number
+set relativenumber
 
 " disable bells
 set noerrorbells

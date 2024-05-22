@@ -35,13 +35,15 @@ function make_links {
 make_links "$HOME/.dotfiles/home" "$HOME"
 make_links "$HOME/.dotfiles/bin" "$HOME/.local/bin"
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 echo "Temparily adding .local/bin to PATH"
 # force path array to be have unique items
 typeset -U path
 path+="$HOME/.local/bin"
 
 # install useful python packages
-pip3 install --upgrade --user tldr virtualenv
+pipx install tldr poetry
 git config --global core.excludesfile ~/.gitignore-system
 
 echo "Done. You may need to log in again to see the effect"

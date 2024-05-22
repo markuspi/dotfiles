@@ -26,7 +26,7 @@ fi
 if ! [[ -v ROOTLESS ]]; then
     echo "Installing dependencies"
     $SUDO_PREFIX apt update
-    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales
+    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales pipx python3-virtualenv
 
     echo "Setting zsh as shell for current user"
     $SUDO_PREFIX chsh -s /bin/zsh "$USER"
