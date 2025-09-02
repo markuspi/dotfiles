@@ -43,7 +43,7 @@ typeset -U path
 path+="$HOME/.local/bin"
 
 # install useful python packages
-pipx install tldr poetry
+uv tool install tldr
 git config --global core.excludesfile ~/.gitignore-system
 
 echo "Done. You may need to log in again to see the effect"

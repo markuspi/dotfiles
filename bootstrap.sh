@@ -26,7 +26,7 @@ fi
 if ! [[ -v ROOTLESS ]]; then
     echo "Installing dependencies"
     $SUDO_PREFIX apt update
-    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl python3-pip tmux htop powerline locales pipx python3-virtualenv
+    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl tmux htop powerline locales
 
     echo "Setting zsh as shell for current user"
     $SUDO_PREFIX chsh -s /bin/zsh "$USER"
@@ -36,6 +36,8 @@ if ! [[ -v ROOTLESS ]]; then
         printf "\nemulate sh -c 'source /etc/profile'\n" | $SUDO_PREFIX tee -a /etc/zsh/zprofile
     fi
 fi
+
+wget -qO- https://astral.sh/uv/install.sh | sh
 
 if ! [ -x "$(command -v git)" ]; then
     echo "Error: git is not installed" >&2
@@ -47,12 +49,6 @@ TMP_DIR="$(mktemp -d)"
 if ! [ -x "$(command -v python3)" ]; then
     echo "Error: python3 is not installed" >&2
     exit 1
-fi
-
-if ! [ -x "$(command -v pip3)" ]; then
-    echo "pip3 is not installed, installing locally..."
-    wget -O "$TMP_DIR/get-pip.py" https://bootstrap.pypa.io/get-pip.py
-    python3 "$TMP_DIR/get-pip.py" --user
 fi
 
 if ! [ -x "$(command -v zsh)" ]; then
