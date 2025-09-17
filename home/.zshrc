@@ -47,3 +47,4 @@ if [ -f ~/.dotfiles/zshrc.local ]; then
     source ~/.dotfiles/zshrc.local
 fi
 
+eval "$(uv generate-shell-completion zsh)"
