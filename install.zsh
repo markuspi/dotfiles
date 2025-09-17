@@ -34,6 +34,7 @@ function make_links {
 
 make_links "$HOME/.dotfiles/home" "$HOME"
 make_links "$HOME/.dotfiles/bin" "$HOME/.local/bin"
+make_links "$HOME/.dotfiles/config" "$HOME/.config"
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 

@@ -26,7 +26,7 @@ fi
 if ! [[ -v ROOTLESS ]]; then
     echo "Installing dependencies"
     $SUDO_PREFIX apt update
-    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl tmux htop powerline locales
+    $SUDO_PREFIX apt install --no-install-recommends -y git vim zsh fonts-powerline curl tmux htop powerline locales net-tools unzip
 
     echo "Setting zsh as shell for current user"
     $SUDO_PREFIX chsh -s /bin/zsh "$USER"
@@ -34,6 +34,11 @@ if ! [[ -v ROOTLESS ]]; then
     if ! grep -q emulate /etc/zsh/zprofile; then
         echo "Patching zprofile for snap support"
         printf "\nemulate sh -c 'source /etc/profile'\n" | $SUDO_PREFIX tee -a /etc/zsh/zprofile
+    fi
+
+    if [ -x "$(command -v snap)" ]; then
+        echo "Installing neovim"
+        $SUDO_PREFIX snap install nvim --classic
     fi
 fi
 
