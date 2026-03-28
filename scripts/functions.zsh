@@ -107,3 +107,10 @@ function ggg {
     git commit -m "'$*'"
 }
 
+function dissolve {
+    t="$1.dissolve.tmp" &&
+    mv "$1" "$t" &&
+    mv "$t"/*(D) . &&
+    rm -rf "$t"
+}
+

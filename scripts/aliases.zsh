@@ -33,6 +33,7 @@ alias div="python3 -c 'import sys; x,y = int(sys.argv[1]),int(sys.argv[2]); prin
 alias urlencode='python3 -c "import sys, urllib.parse as up; print(up.quote_plus(sys.argv[1]))"'
 alias urldecode='python3 -c "import sys, urllib.parse as up; print(up.unquote_plus(sys.argv[1]))"'
 alias bits='python3 -c "import sys; print([i for i, x in enumerate(bin(int(sys.argv[1], 0))[::-1]) if x == \"1\"])"'
+alias pyex='python3 -c "import sys; print(eval(sys.argv[1]))"'
 
 # edit common config files
 alias ed-al="vim ~/.dotfiles/scripts/aliases.zsh && . ~/.dotfiles/scripts/aliases.zsh"
